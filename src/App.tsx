@@ -311,7 +311,11 @@ function Hero() {
           alt="Destrave Financeiro"
         />
       </div>
-      <div className="hero-visual" aria-hidden="true" />
+      <div
+        className="hero-visual"
+        aria-hidden="true"
+        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}hero-mobile.png')` }}
+      />
 
       <div className="hero-texture" aria-hidden="true" />
       <div className="hero-grid">
@@ -422,20 +426,21 @@ function TestimonialsSection() {
         <SectionHeader
           align="center"
           eyebrow="Prova social"
-          title="O que dizem as empresárias que já destravaram:"
+          title="O que dizem os empresários que já destravaram:"
         />
         <div className="testimonial-grid">
           {testimonials.map((testimonial, index) => (
             <Reveal
               className={`testimonial-card testimonial-card-${index + 1}`}
               delay={index * 0.08}
-              key={testimonial.quote}
+              key={testimonial.name}
             >
+              <h3 className="testimonial-phrase">"{testimonial.phrase}"</h3>
               <div className="testimonial-top">
-                <div className="avatar">{testimonial.role.slice(0, 1)}</div>
+                <div className="avatar">{testimonial.name.slice(0, 1)}</div>
                 <div>
-                  <span>Aluna Destrave</span>
-                  <strong>{testimonial.role}</strong>
+                  <span>{testimonial.label}</span>
+                  <strong>{testimonial.name}</strong>
                   <div className="stars" aria-label="Avaliação cinco estrelas">
                     {Array.from({ length: 5 }).map((_, starIndex) => (
                       <Star
@@ -448,7 +453,7 @@ function TestimonialsSection() {
                 </div>
               </div>
               <Quote className="quote-icon h-7 w-7" />
-              <p>“{testimonial.quote}”</p>
+              <p>"{testimonial.quote}"</p>
             </Reveal>
           ))}
         </div>
