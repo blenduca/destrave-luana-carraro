@@ -2,8 +2,11 @@ import {
   ArrowUpRight,
   BadgeCheck,
   BarChart3,
+  BookOpen,
   BriefcaseBusiness,
+  Calculator,
   Check,
+  CheckSquare,
   CircleDollarSign,
   ClipboardCheck,
   LineChart,
@@ -11,6 +14,7 @@ import {
   ShieldCheck,
   Sparkles,
   Split,
+  TableProperties,
   WalletCards,
   X,
 } from "lucide-react";
@@ -128,16 +132,43 @@ export const luana = {
     "+ de 200 mentorias | + 5 anos guiando profissionas e pessoas a conquistarem seus sonhos.",
 };
 
+export const offerDeliverables = [
+  {
+    name: "Metodologia de Destrave Financeiro para Empresas",
+    description: "5 módulos em vídeo com o método completo para você sair do amadorismo e assumir o controle real do seu caixa e lucro.",
+    value: 197,
+    icon: BookOpen,
+    highlight: true,
+  },
+  {
+    name: "Planilha de Acompanhamento Financeiro",
+    description: "Controle receitas, despesas e fluxo de caixa de forma simples e visual. Criada para quem não é contador.",
+    value: 37,
+    icon: TableProperties,
+    highlight: false,
+  },
+  {
+    name: "Calculadora de Pró-Labore",
+    description: "Descubra exatamente quanto você deve retirar da empresa sem comprometer o caixa ou o crescimento do negócio.",
+    value: 37,
+    icon: Calculator,
+    highlight: false,
+  },
+  {
+    name: "Checklist da Rotina Financeira Lucrativa",
+    description: "Um guia prático com as ações financeiras semanais e mensais que toda empresária lucrativa realiza.",
+    value: 37,
+    icon: CheckSquare,
+    highlight: false,
+  },
+];
+
 export const offer = {
   title: "Assuma o controle do seu negócio hoje.",
-  includes: [
-    "Acesso imediato às aulas gravadas (assista onde e quando quiser).",
-    "Ferramentas práticas para aplicação imediata.",
-    "Metodologia validada por centenas de alunos.",
-  ],
-  priceEyebrow: "DE R$ XXX POR APENAS",
-  installment: "12x de R$ XX,XX",
-  cash: "ou R$ XXX,00 à vista",
+  totalValue: 308,
+  priceEyebrow: "DE R$ 308 POR APENAS",
+  installment: "12x de R$ 7,25",
+  cash: "ou R$ 67,00 à vista",
   cta: "QUERO COMEÇAR AGORA",
 };
 
