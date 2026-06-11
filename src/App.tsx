@@ -77,9 +77,8 @@ function SectionHeader({
 }) {
   return (
     <Reveal
-      className={`section-header ${
-        align === "center" ? "section-header-center" : ""
-      }`}
+      className={`section-header ${align === "center" ? "section-header-center" : ""
+        }`}
     >
       <p className="eyebrow">{eyebrow}</p>
       <h2>{title}</h2>
@@ -311,14 +310,27 @@ function Hero() {
     <section className="hero" id="top">
       <div className="hero-overlay" aria-hidden="true" />
 
-      <Reveal className="hero-content">
+      {/* Logo e badge visíveis apenas no mobile, acima da imagem */}
+      <div className="hero-mobile-header">
         <img
           className="hero-logo"
           src={`${import.meta.env.BASE_URL}destrave-logo.png`}
           alt="Destrave Financeiro"
         />
-
         <div className="micro-badge">
+          <ShieldCheck className="h-4 w-4" />
+          <span>Especialista em Educação Financeira</span>
+        </div>
+      </div>
+
+      <Reveal className="hero-content">
+        <img
+          className="hero-logo hero-logo-desktop"
+          src={`${import.meta.env.BASE_URL}destrave-logo.png`}
+          alt="Destrave Financeiro"
+        />
+
+        <div className="micro-badge micro-badge-desktop">
           <ShieldCheck className="h-4 w-4" />
           <span>Especialista em Educação Financeira</span>
         </div>
@@ -489,7 +501,6 @@ function LuanaSection() {
     "+250 mentorias realizadas",
     "Especialista em Educação Financeira",
     "Especialista em Finanças Comportamentais",
-    "Especialista em Banking",
     'Coautora da obra \u201cQuais de Mim Você Procura\u201d',
   ];
 

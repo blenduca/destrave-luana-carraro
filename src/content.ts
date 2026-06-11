@@ -3,6 +3,7 @@ import {
   BadgeCheck,
   BarChart3,
   BookOpen,
+  Brain,
   BriefcaseBusiness,
   Calculator,
   Check,
@@ -42,7 +43,7 @@ export const pain = {
   closing:
     "Para quem tem talento, a desorganização financeira não é apenas um detalhe, é o gargalo estratégico que segura o seu crescimento e rouba o seu sono.",
   bridge:
-    "Sua empresa cresceu, mas o seu controle ficou para trás? O Destrave Financeiro é o treinamento direto ao ponto para quem faturar como empresa, mas ainda opera no amadorismo.",
+    "Sua empresa cresceu, mas o seu controle ficou para trás? O Destrave Financeiro é o treinamento direto ao ponto para quem fatura como empresa, mas ainda opera no amadorismo.",
 };
 
 export const testimonials = [
@@ -123,7 +124,7 @@ export const fit = {
 };
 
 export const luana = {
-  bio: "Entusiasta do universo das finanças! Me tornei Mentora e Consultora Financeira após descobrir que conhecimento liberta e transforma! Entendi que meu propósito de vida estava em levar esse conhecimento e transformar a mentalidade e a vida financeira das pessoas mundo afora!",
+  bio: "Consultora e Mentora Financeira especializada em empresários que faturam bem e não veem o dinheiro sobrar. Nos últimos 5 anos, conduziu mais de 250 mentorias e processos de consultoria financeira, ajudando profissionais e empresários a deixarem o modo sobrevivência para trás. Especialista em Educação Financeira e Finanças Comportamentais. Coautora da obra Quais de Mim Você Procura.",
   specialty:
     "ESPECIALISTA EM EDUCAÇÃO FINANCEIRA, FINANÇAS, INVESTIMENTOS E BANKING E FINANÇAS COMPORTAMENTAIS.",
   book:
@@ -141,18 +142,18 @@ export const offerDeliverables = [
     highlight: true,
   },
   {
-    name: "Planilha de Acompanhamento Financeiro",
+    name: "Planilha de Controle Financeiro PJ/PF",
     description: "Controle receitas, despesas e fluxo de caixa de forma simples e visual. Criada para quem não é contador.",
     value: 37,
     icon: TableProperties,
     highlight: false,
   },
   {
-    name: "Calculadora de Pró-Labore",
-    description: "Descubra exatamente quanto você deve retirar da empresa sem comprometer o caixa ou o crescimento do negócio.",
-    value: 37,
+    name: "Aula Bônus: 'Como Fazer Análises Estratégicas Utilizando Planilhas'",
+    description: "Descubra como transformar números em decisões estratégicas que realmente impactam o faturamento e a lucratividade do seu negócio.",
+    value: 97,
     icon: Calculator,
-    highlight: false,
+    highlight: true,
   },
   {
     name: "Checklist da Rotina Financeira Lucrativa",
@@ -185,7 +186,7 @@ export const faqs = [
   },
   {
     question: "Por quanto tempo tenho acesso?",
-    answer: "O acesso é por [1 ano / vitalício], incluindo todas as atualizações.",
+    answer: "O acesso é por [1 ano], incluindo todas as atualizações.",
   },
   {
     question: "Serve para MEI?",
@@ -201,7 +202,8 @@ export const faqs = [
 
 export const credibilityBadges = [
   { label: "Especialista em Educação Financeira", icon: BadgeCheck },
-  { label: "+ de 200 mentorias", icon: BriefcaseBusiness },
+  { label: "Especialista em Finanças Comportamentais", icon: Brain },
+  { label: "+ de 250 mentorias", icon: BriefcaseBusiness },
   { label: "Finanças, Investimentos e Banking", icon: BarChart3 },
 ];
 
