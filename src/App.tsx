@@ -1,5 +1,6 @@
+import { useState } from "react";
 import type { ReactNode } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ArrowDown,
   ArrowRight,
@@ -10,6 +11,7 @@ import {
   Quote,
   Shield,
   ShieldCheck,
+  X,
 } from "lucide-react";
 import {
   faqs,
