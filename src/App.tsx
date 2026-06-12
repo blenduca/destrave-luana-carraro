@@ -1,6 +1,5 @@
-import { useState, useRef } from "react";
 import type { ReactNode } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowDown,
   ArrowRight,
@@ -11,12 +10,8 @@ import {
   Quote,
   Shield,
   ShieldCheck,
-  X,
-  CheckCircle2,
-  Loader2,
 } from "lucide-react";
 import {
-  checkoutUrl,
   faqs,
   fit,
   guarantee,
@@ -28,9 +23,6 @@ import {
   pillars,
   testimonials,
   credibilityBadges,
-  compactBadges,
-  checkIcon as CheckIcon,
-  xIcon as XIcon,
 } from "./content";
 
 type RevealProps = {
@@ -122,186 +114,7 @@ function PrimaryButton({
   );
 }
 
-/* ─── Lead Modal ─────────────────────────────────────────────── */
-
-const WEBHOOK_URL =
-  "https://automacao.bagents.cloud/webhook/32514ea3-64d4-4259-a0d4-bcba806b54c9";
-
-function getUtmParams(): Record<string, string> {
-  const params = new URLSearchParams(window.location.search);
-  const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
-  const result: Record<string, string> = {};
-  keys.forEach((k) => {
-    const v = params.get(k);
-    if (v) result[k] = v;
-  });
-  return result;
-}
-
-type ModalStatus = "idle" | "loading" | "success" | "error";
-
-function LeadModal({ onClose }: { onClose: () => void }) {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [status, setStatus] = useState<ModalStatus>("idle");
-  const overlayRef = useRef<HTMLDivElement>(null);
-
-  function formatTelefone(value: string) {
-    const digits = value.replace(/\D/g, "").slice(0, 11);
-    if (digits.length <= 2) return digits;
-    if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
-    return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
-    try {
-      await fetch(WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nome,
-          email,
-          telefone,
-          ...getUtmParams(),
-          page_url: window.location.href,
-        }),
-      });
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
-  }
-
-  function handleOverlayClick(e: React.MouseEvent<HTMLDivElement>) {
-    if (e.target === overlayRef.current) onClose();
-  }
-
-  return (
-    <motion.div
-      ref={overlayRef}
-      className="modal-overlay"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.22 }}
-      onClick={handleOverlayClick}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Formulário de inscrição"
-    >
-      <motion.div
-        className="modal-card"
-        initial={{ opacity: 0, y: 40, scale: 0.97 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 30, scale: 0.97 }}
-        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <button
-          className="modal-close"
-          onClick={onClose}
-          aria-label="Fechar"
-          type="button"
-        >
-          <X className="h-5 w-5" />
-        </button>
-
-        {status === "success" ? (
-          <div className="modal-success">
-            <CheckCircle2 className="modal-success-icon" />
-            <h3>Recebemos suas informações!</h3>
-            <p>
-              Em breve entraremos em contato para finalizar sua inscrição no
-              Destrave Financeiro.
-            </p>
-            <button className="primary-button group" onClick={onClose} type="button">
-              <span>Fechar</span>
-            </button>
-          </div>
-        ) : (
-          <>
-            <div className="modal-header">
-              <p className="eyebrow">Quase lá</p>
-              <h3>Garanta sua vaga no Destrave Financeiro</h3>
-              <p>Preencha seus dados e receba as instruções de acesso.</p>
-            </div>
-
-            <form className="modal-form" onSubmit={handleSubmit} noValidate>
-              <div className="modal-field">
-                <label htmlFor="lead-nome">Nome completo</label>
-                <input
-                  id="lead-nome"
-                  type="text"
-                  placeholder="Seu nome"
-                  value={nome}
-                  onChange={(e) => setNome(e.target.value)}
-                  required
-                  autoComplete="name"
-                />
-              </div>
-
-              <div className="modal-field">
-                <label htmlFor="lead-email">E-mail</label>
-                <input
-                  id="lead-email"
-                  type="email"
-                  placeholder="seu@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  autoComplete="email"
-                />
-              </div>
-
-              <div className="modal-field">
-                <label htmlFor="lead-telefone">WhatsApp</label>
-                <input
-                  id="lead-telefone"
-                  type="tel"
-                  placeholder="(00) 00000-0000"
-                  value={telefone}
-                  onChange={(e) => setTelefone(formatTelefone(e.target.value))}
-                  required
-                  autoComplete="tel"
-                />
-              </div>
-
-              {status === "error" && (
-                <p className="modal-error">
-                  Ocorreu um erro. Tente novamente.
-                </p>
-              )}
-
-              <button
-                className="primary-button group modal-submit"
-                type="submit"
-                disabled={status === "loading"}
-              >
-                {status === "loading" ? (
-                  <>
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                    <span>Enviando...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>QUERO COMEÇAR AGORA</span>
-                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </>
-                )}
-              </button>
-
-              <p className="modal-privacy">
-                🔒 Seus dados estão seguros e não serão compartilhados.
-              </p>
-            </form>
-          </>
-        )}
-      </motion.div>
-    </motion.div>
-  );
-}
+const KIWIFY_URL = "https://pay.kiwify.com.br/uFzTU79";
 
 /* ─── Hero ────────────────────────────────────────────────────── */
 
@@ -485,7 +298,7 @@ function FitSection() {
           </Reveal>
         </div>
         <Reveal className="fit-actions" delay={0.12}>
-          <PrimaryButton onClick={scrollToOffer}>
+          <PrimaryButton href={KIWIFY_URL} checkout>
             QUERO DESTRAVAR MINHA EMPRESA AGORA
           </PrimaryButton>
         </Reveal>
@@ -575,7 +388,7 @@ function TestimonialsSection() {
 
 /* ─── Offer ───────────────────────────────────────────────────── */
 
-function OfferSection({ onOpenModal }: { onOpenModal: () => void }) {
+function OfferSection() {
   const totalValue = offerDeliverables.reduce((sum, d) => sum + d.value, 0);
 
   return (
@@ -616,7 +429,7 @@ function OfferSection({ onOpenModal }: { onOpenModal: () => void }) {
           <div className="price-eyebrow">{offer.priceEyebrow}</div>
           <div className="price">{offer.installment}</div>
           <p className="price-cash">{offer.cash}</p>
-          <PrimaryButton onClick={onOpenModal}>
+          <PrimaryButton href={KIWIFY_URL} checkout>
             {offer.cta}
           </PrimaryButton>
           <div className="offer-assurances">
@@ -715,7 +528,7 @@ function FaqSection() {
 
 /* ─── Footer ──────────────────────────────────────────────────── */
 
-function Footer({ onOpenModal }: { onOpenModal: () => void }) {
+function Footer() {
   return (
     <footer id="footer">
       <div className="container footer-inner">
@@ -730,7 +543,7 @@ function Footer({ onOpenModal }: { onOpenModal: () => void }) {
             financeiro da sua empresa com clareza, estratégia e lucro.
           </p>
           <div className="footer-cta-wrap">
-            <PrimaryButton onClick={onOpenModal}>
+            <PrimaryButton href={KIWIFY_URL} checkout>
               QUERO DESTRAVAR MEU LUCRO AGORA
             </PrimaryButton>
           </div>
@@ -768,8 +581,6 @@ function Footer({ onOpenModal }: { onOpenModal: () => void }) {
 /* ─── App ─────────────────────────────────────────────────────── */
 
 export default function App() {
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
     <>
       <Hero />
@@ -778,16 +589,10 @@ export default function App() {
       <FitSection />
       <LuanaSection />
       <TestimonialsSection />
-      <OfferSection onOpenModal={() => setModalOpen(true)} />
+      <OfferSection />
       <GuaranteeSection />
       <FaqSection />
-      <Footer onOpenModal={() => setModalOpen(true)} />
-
-      <AnimatePresence>
-        {modalOpen && (
-          <LeadModal onClose={() => setModalOpen(false)} />
-        )}
-      </AnimatePresence>
+      <Footer />
     </>
   );
 }

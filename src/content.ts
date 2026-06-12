@@ -168,8 +168,8 @@ export const offer = {
   title: "Assuma o controle do seu negócio hoje.",
   totalValue: 308,
   priceEyebrow: "DE R$ 308 POR APENAS",
-  installment: "12x de R$ 7,25",
-  cash: "ou R$ 67,00 à vista",
+  installment: "10x de R$ 10,03",
+  cash: "ou R$ 97,00 à vista",
   cta: "QUERO COMEÇAR AGORA",
 };
 
