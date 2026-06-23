@@ -1,0 +1,226 @@
+import {
+  ArrowUpRight,
+  BadgeCheck,
+  BarChart3,
+  BriefcaseBusiness,
+  Check,
+  CircleDollarSign,
+  ClipboardCheck,
+  LineChart,
+  LockKeyhole,
+  ShieldCheck,
+  Sparkles,
+  Split,
+  WalletCards,
+  X,
+} from "lucide-react";
+
+export const checkoutUrl =
+  import.meta.env.VITE_CHECKOUT_URL ||
+  "https://pay.kiwify.com.br/uFzTU79";
+
+export const hero = {
+  headline:
+    "Destrave o financeiro da sua empresa e assuma o controle do seu lucro em 2026.",
+  subheadline:
+    "A metodologia prática para empresários e profissionais liberais que faturam, mas não veem a cor do dinheiro.",
+  cta: "QUERO DESTRAVAR MEU LUCRO AGORA",
+};
+
+export const pain = {
+  intro: "Você construiu sua empresa, conquistou clientes e o dinheiro está entrando.",
+  lead: "Mas, no fundo, você se sente perdida:",
+  bullets: [
+    "Não sabe exatamente para onde o dinheiro vai.",
+    "Vive na insegurança de não saber quanto terá em caixa no mês seguinte.",
+    "Não faz ideia se o mês fechou com lucro ou prejuízo real.",
+  ],
+  closing:
+    "Para quem tem talento, a desorganização financeira não é apenas um detalhe, é o gargalo estratégico que segura o seu crescimento e rouba o seu sono.",
+  bridge:
+    "Sua empresa cresceu, mas o seu controle ficou para trás? O Destrave Financeiro é o treinamento direto ao ponto para quem faturar como empresa, mas ainda opera no amadorismo.",
+};
+
+export const testimonials = [
+  {
+    name: "Fernanda Ciello",
+    label: "Aluna Destrave",
+    phrase: "Finanças de forma leve e com clareza imediata",
+    quote:
+      "Eu nunca tinha feito uma aula sobre finanças tão leve. Sempre tive dificuldades de olhar para o financeiro por ter um perfil impulsivo, mas as ferramentas me trouxeram clareza sobre o meu momento atual. Super recomendo o trabalho, pois vai muito além dos números.",
+  },
+  {
+    name: "Silmara Xavier",
+    label: "Aluna Destrave",
+    phrase: "Um divisor de águas para o crescimento da empresa",
+    quote:
+      "Entendi que não existe crescimento real sem controle financeiro. Essa aula foi um divisor de águas e me provou que finanças não são apenas números, mas sim consciência e visão de futuro. Tive uma mudança de mentalidade: prosperidade é gestão, disciplina e decisão.",
+  },
+  {
+    name: "Priscilla Ayres",
+    label: "Aluna Destrave",
+    phrase: "Conteúdo prático, sem termos difíceis e com resultados",
+    quote:
+      "Foi a primeira vez que ouvi sobre finanças de forma tão leve, clara e objetiva, sem termos difíceis. Amei as planilhas e o suporte recebido. Já coloquei a organização em prática e a diferença para entender as contas e visualizar metas é notória.",
+  },
+  {
+    name: "Ian Paz",
+    label: "Aluno Destrave",
+    phrase: "Uma relação mais saudável com o dinheiro e escolhas conscientes",
+    quote:
+      "Compreendi que organizar o dinheiro vai além de planilhas, trata-se de uma relação psicológica mais saudável. Percebi que o problema não se resolve apenas ganhando mais, mas sim olhando com consciência para o que temos, entendendo nossos padrões e tomando decisões com clareza.",
+  },
+];
+
+export const pillars = [
+  {
+    title: "DIAGNÓSTICO FINANCEIRO",
+    description: "Identifique o verdadeiro gargalo que drena seu caixa.",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "FIM DO AMADORISMO (PF x PJ)",
+    description:
+      "Aprenda a separar as contas de vez e defina seu pró-labore.",
+    icon: Split,
+  },
+  {
+    title: "VISÃO ESTRATÉGICA (DRE)",
+    description:
+      'Pare de decidir pelo "feeling". Use números para saber quando e quanto investir.',
+    icon: LineChart,
+  },
+  {
+    title: "ESTRUTURA DE LUCRO",
+    description:
+      "Organize sua operação para que o lucro seja a regra, não a sobra.",
+    icon: CircleDollarSign,
+  },
+  {
+    title: "SEGURANÇA FINANCEIRA",
+    description:
+      "Construa o capital de giro e a reserva que te dão liberdade de escolha.",
+    icon: ShieldCheck,
+  },
+];
+
+export const fit = {
+  yes: [
+    "Mistura PF e PJ e não vê o dinheiro sobrando.",
+    "Não tem previsibilidade de caixa.",
+    'Vive na roda de "trabalhar apenas para pagar boletos".',
+    "Sofre de ansiedade ao abrir o extrato bancário.",
+  ],
+  no: [
+    "Busca uma fórmula mágica sem precisar aplicar o método.",
+    "Prefere continuar no improviso e apagando incêndios.",
+    "Não está disposto a encarar os números da própria empresa.",
+  ],
+};
+
+export const luana = {
+  bio: "Consultora e Mentora Financeira especializada em empresários que faturam bem e não veem o dinheiro sobrar.",
+  stats: "+ de 250 mentorias | + 5 anos guiando profissionais e empresários",
+  highlights: [
+    {
+      title: "Experiência",
+      description: "Nos últimos 5 anos, conduziu mais de 250 mentorias e processos de consultoria financeira.",
+    },
+    {
+      title: "Especializações",
+      description: "Especialista em Educação Financeira, Finanças Comportamentais e Banking.",
+    },
+    {
+      title: "Resultados",
+      description: "Ajudou centenas de profissionais e empresários a deixarem o modo sobrevivência para trás.",
+    },
+    {
+      title: "Obra Publicada",
+      description: "Coautora da obra Quais de Mim Você Procura (Mulheres nas Finanças).",
+    },
+  ],
+};
+
+export const offer = {
+  title: "Assuma o controle do seu negócio hoje.",
+  priceEyebrow: "Hoje você investe apenas:",
+  installment: "10x de R$ 10,03",
+  cash: "ou R$ 97,00 à vista",
+  cta: "QUERO COMEÇAR AGORA",
+  valueStack: [
+    {
+      title: "Curso Destrave Financeiro para Empresas",
+      subtitle: "O método completo para organizar o financeiro do seu CNPJ.",
+      originalPrice: "R$ 197",
+      isBonus: false,
+    },
+    {
+      title: "Metodologia Destrave Financeiro para Empresas",
+      subtitle: "Apostila digital detalhada com o método passo a passo.",
+      originalPrice: "R$ 197",
+      isBonus: true,
+    },
+    {
+      title: "Planilha de Acompanhamento Financeiro",
+      subtitle: "A ferramenta pronta para controle de caixa e visualização de lucros.",
+      originalPrice: "R$ 37",
+      isBonus: true,
+    },
+    {
+      title: "Calculadora de Pró-Labore",
+      subtitle: "Para definir seu salário ideal sem drenar o caixa da empresa.",
+      originalPrice: "R$ 37",
+      isBonus: true,
+    },
+    {
+      title: "Checklist da Rotina Financeira Lucrativa",
+      subtitle: "O passo a passo diário, semanal e mensal para manter a organização.",
+      originalPrice: "R$ 37",
+      isBonus: true,
+    },
+  ],
+  totalOriginalValue: "R$ 308",
+};
+
+export const guarantee = {
+  title: "Risco Zero para você.",
+  text: "Garantia Incondicional de 7 dias. Eu confio tanto no método que te dou uma semana inteira para testar. Se você assistir às aulas e sentir que não é para você, basta solicitar o reembolso e devolvemos 100% do seu investimento. Sem burocracia.",
+};
+
+export const faqs = [
+  {
+    question: "O curso é ao vivo?",
+    answer:
+      "Não, as aulas são gravadas para você assistir no seu ritmo e rever quantas vezes precisar.",
+  },
+  {
+    question: "Por quanto tempo tenho acesso?",
+    answer: "O acesso é por [1 ano / vitalício], incluindo todas as atualizações.",
+  },
+  {
+    question: "Serve para MEI?",
+    answer:
+      "Com certeza. O método serve para qualquer empresário que precise organizar o CNPJ.",
+  },
+  {
+    question: "Preciso entender de matemática ou planilhas?",
+    answer:
+      "Não. O foco é estratégia e gestão, de forma simples e visual.",
+  },
+];
+
+export const credibilityBadges = [
+  { label: "Especialista em Educação Financeira", icon: BadgeCheck },
+  { label: "+ de 250 mentorias", icon: BriefcaseBusiness },
+  { label: "Finanças, Investimentos e Banking", icon: BarChart3 },
+];
+
+export const compactBadges = [
+  { label: "Aulas gravadas", icon: Sparkles },
+  { label: "Aplicação imediata", icon: WalletCards },
+  { label: "Garantia de 7 dias", icon: LockKeyhole },
+  { label: "Checkout", icon: ArrowUpRight },
+];
+
+export const checkIcon = Check;
+export const xIcon = X;
