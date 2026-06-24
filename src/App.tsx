@@ -23,7 +23,7 @@ import {
   offer,
   pain,
   pillars,
-  testimonials,
+  testimonialScreenshots,
 } from "./content";
 
 type RevealProps = {
@@ -313,24 +313,70 @@ function TestimonialsSection() {
         <SectionHeader
           align="center"
           eyebrow="Prova social"
-          title="O que dizem os empresários que já destravaram:"
+          title="O que dizem quem já destravou:"
         />
-        <div className="testimonial-clean-grid">
-          {testimonials.map((testimonial, index) => (
+        <div className="testimonial-screenshots-grid">
+          {testimonialScreenshots.map((t, index) => (
             <Reveal
-              className="testimonial-clean-item"
+              className="testimonial-screenshot-card"
               delay={index * 0.08}
-              key={testimonial.name}
+              key={t.name}
             >
-              <h3 className="testimonial-phrase">“{testimonial.phrase}”</h3>
-              <p className="testimonial-quote">“{testimonial.quote}”</p>
-              <div className="testimonial-author">
-                <strong>{testimonial.name}</strong>
-                <span>{testimonial.label}</span>
-              </div>
+              {t.files.map((file) => (
+                <img
+                  key={file}
+                  src={`${import.meta.env.BASE_URL}${file}`}
+                  alt={`Depoimento de ${t.name}`}
+                  loading="lazy"
+                />
+              ))}
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function ValueStackSection() {
+  return (
+    <section className="section-pad value-stack-section">
+      <div className="container value-stack-container">
+        <Reveal className="value-stack-header">
+          <p className="eyebrow">Incluso na oferta</p>
+          <h2>Tudo que você leva hoje:</h2>
+        </Reveal>
+
+        <Reveal className="value-stack-table" delay={0.08}>
+          {offer.valueStack.map((item, index) => (
+            <div className="value-stack-row" key={item.title}>
+              <span className="value-stack-num">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <p className="value-stack-item-title">{item.title}</p>
+              <span className="value-stack-price">{item.originalPrice}</span>
+            </div>
+          ))}
+
+          <div className="value-stack-divider">
+            <span className="value-stack-total-label">Valor total</span>
+            <span className="value-stack-total-original">
+              {offer.totalOriginalValue}
+            </span>
+          </div>
+
+          <div className="value-stack-offer">
+            <span className="value-stack-offer-label">Oferta única</span>
+            <span className="value-stack-offer-price">R$ 97</span>
+          </div>
+        </Reveal>
+
+        <Reveal className="value-stack-cta" delay={0.16}>
+          <PrimaryButton href="#oferta">QUERO GARANTIR AGORA</PrimaryButton>
+          <p className="value-stack-savings">
+            Você economiza R$ 393 — mais de 80% de desconto
+          </p>
+        </Reveal>
       </div>
     </section>
   );
@@ -360,14 +406,6 @@ function OfferSection() {
                 </div>
               </div>
             ))}
-            <div className="invoice-total-row">
-              <span className="invoice-total-label">Total</span>
-              <span className="invoice-total-value price-slashed-total">{offer.totalOriginalValue}</span>
-            </div>
-            <div className="invoice-launch-row">
-              <span className="invoice-launch-label">Oferta Única de Lançamento</span>
-              <span className="invoice-launch-value">{offer.cash}</span>
-            </div>
           </div>
         </Reveal>
 
@@ -532,6 +570,7 @@ export default function App() {
       <FitSection />
       <LuanaSection />
       <TestimonialsSection />
+      <ValueStackSection />
       <OfferSection />
       <GuaranteeSection />
       <FaqSection />

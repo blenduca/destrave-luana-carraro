@@ -41,6 +41,25 @@ export const pain = {
     "Sua empresa cresceu, mas o seu controle ficou para trás? O Destrave Financeiro é o treinamento direto ao ponto para quem faturar como empresa, mas ainda opera no amadorismo.",
 };
 
+export const testimonialScreenshots = [
+  {
+    name: "Fernanda Ciello",
+    files: ["depoimento-fernanda.png"],
+  },
+  {
+    name: "Ian Paz",
+    files: ["depoimento-ian.png"],
+  },
+  {
+    name: "Priscilla Ayres",
+    files: ["depoimento-priscilla.png"],
+  },
+  {
+    name: "Silmara Xavier",
+    files: ["depoimento-silmara-1.png", "depoimento-silmara-2.png"],
+  },
+];
+
 export const testimonials = [
   {
     name: "Fernanda Ciello",
@@ -143,9 +162,9 @@ export const luana = {
 
 export const offer = {
   title: "Assuma o controle do seu negócio hoje.",
-  priceEyebrow: "Hoje você investe apenas:",
-  installment: "10x de R$ 10,03",
-  cash: "ou R$ 97,00 à vista",
+  priceEyebrow: "Investimento único:",
+  installment: "R$ 97",
+  cash: "Acesso imediato e completo",
   cta: "QUERO COMEÇAR AGORA",
   valueStack: [
     {
