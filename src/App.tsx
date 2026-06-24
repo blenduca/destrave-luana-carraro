@@ -356,10 +356,18 @@ function OfferSection() {
                   <p>{item.subtitle}</p>
                 </div>
                 <div className="invoice-row-price">
-                  <span>{item.isBonus ? "Incluso" : "Principal"}</span>
+                  <span>{item.originalPrice}</span>
                 </div>
               </div>
             ))}
+            <div className="invoice-total-row">
+              <span className="invoice-total-label">Total</span>
+              <span className="invoice-total-value price-slashed-total">{offer.totalOriginalValue}</span>
+            </div>
+            <div className="invoice-launch-row">
+              <span className="invoice-launch-label">Oferta Única de Lançamento</span>
+              <span className="invoice-launch-value">{offer.cash}</span>
+            </div>
           </div>
         </Reveal>
 

@@ -149,37 +149,31 @@ export const offer = {
   cta: "QUERO COMEÇAR AGORA",
   valueStack: [
     {
-      title: "Curso Destrave Financeiro para Empresas",
+      title: "Metodologia Destrave Financeiro para Empresas",
       subtitle: "O método completo para organizar o financeiro do seu CNPJ.",
       originalPrice: "R$ 197",
       isBonus: false,
     },
     {
-      title: "Metodologia Destrave Financeiro para Empresas",
-      subtitle: "Apostila digital detalhada com o método passo a passo.",
-      originalPrice: "R$ 197",
+      title: "Planilhas para Controle Financeiro PF e PJ",
+      subtitle: "Ferramentas prontas para controle de caixa e visualização de lucros.",
+      originalPrice: "R$ 129",
       isBonus: true,
     },
     {
-      title: "Planilha de Acompanhamento Financeiro",
-      subtitle: "A ferramenta pronta para controle de caixa e visualização de lucros.",
-      originalPrice: "R$ 37",
+      title: "Aula Bônus: Análise Estratégica",
+      subtitle: "Uma aula extra para aprofundar sua visão estratégica dos números.",
+      originalPrice: "R$ 97",
       isBonus: true,
     },
     {
-      title: "Calculadora de Pró-Labore",
-      subtitle: "Para definir seu salário ideal sem drenar o caixa da empresa.",
-      originalPrice: "R$ 37",
-      isBonus: true,
-    },
-    {
-      title: "Checklist da Rotina Financeira Lucrativa",
+      title: "Checklist Financeiro",
       subtitle: "O passo a passo diário, semanal e mensal para manter a organização.",
-      originalPrice: "R$ 37",
+      originalPrice: "R$ 67",
       isBonus: true,
     },
   ],
-  totalOriginalValue: "R$ 308",
+  totalOriginalValue: "R$ 490",
 };
 
 export const guarantee = {

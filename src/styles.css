@@ -659,6 +659,52 @@ h2 {
   white-space: nowrap;
 }
 
+.invoice-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+  padding-block: 1rem;
+  margin-top: 0.2rem;
+}
+
+.invoice-total-label {
+  color: rgba(255, 254, 251, 0.76);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.invoice-total-value {
+  color: rgba(255, 254, 251, 0.6);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.invoice-launch-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.invoice-launch-label {
+  color: var(--brand-paper);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.invoice-launch-value {
+  color: var(--brand-secondary);
+  font-size: 1.1rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+
 .price-card {
   align-self: center;
   width: 100%;
