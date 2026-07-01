@@ -32,6 +32,13 @@ type RevealProps = {
   delay?: number;
 };
 
+function scrollToSection(id: string) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const y = el.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
+
 function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   const prefersReducedMotion = useReducedMotion();
 
@@ -90,8 +97,6 @@ function PrimaryButton({
       <a
         className={className}
         href={href}
-        rel="noreferrer"
-        target={checkout ? "_blank" : undefined}
       >
         <span>{children}</span>
         <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -126,7 +131,7 @@ function Hero() {
 
         <p className="hero-subtitle">{hero.subheadline}</p>
 
-        <PrimaryButton checkout href={checkoutUrl}>
+        <PrimaryButton onClick={() => scrollToSection("oferta")}>
           {hero.cta}
         </PrimaryButton>
       </Reveal>
@@ -251,7 +256,7 @@ function FitSection() {
           </Reveal>
         </div>
         <Reveal className="fit-actions" delay={0.12}>
-          <PrimaryButton checkout href={checkoutUrl}>
+          <PrimaryButton onClick={() => scrollToSection("oferta")}>
             QUERO DESTRAVAR MINHA EMPRESA AGORA
           </PrimaryButton>
         </Reveal>
@@ -327,7 +332,6 @@ function TestimonialsSection() {
                   key={file}
                   src={`${import.meta.env.BASE_URL}${file}`}
                   alt={`Depoimento de ${t.name}`}
-                  loading="lazy"
                 />
               ))}
             </Reveal>
@@ -526,7 +530,7 @@ function Footer() {
             financeiro da sua empresa com clareza, estratégia e lucro.
           </p>
           <div className="footer-cta-wrap">
-            <PrimaryButton checkout href={checkoutUrl}>
+            <PrimaryButton onClick={() => scrollToSection("oferta")}>
               QUERO DESTRAVAR MEU LUCRO AGORA
             </PrimaryButton>
           </div>
